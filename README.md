@@ -1,5 +1,17 @@
 # Getting Started with Create React App
 
+
+
+### Credentials
+-ADMIN 
+  EMAIL: rahul@test.com
+  password:rahul@2021
+
+-- User:
+  Email:cygnus@test.com
+  password:cygnus
+  
+
 //admin: email: rahul@test.com.    password: rahul@2021 
 
 //user : email: nagesh@test.com    password: nagesh@2021 
