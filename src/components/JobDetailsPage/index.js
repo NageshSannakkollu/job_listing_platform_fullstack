@@ -47,11 +47,11 @@ const JobDetailsPage = () => {
           // console.log("GettingSpecificJob:",response.data)
           setJobInfo(response.data)
       } catch (error) {
-        console.error(`Error fetching job details`)
+        console.error(`Error fetching job details: ${error.message}`)
       }
     }
     getSpecificJob()
-  },[id])
+  },[jwtToken,id])
   const {aboutCompany,companyName,addLogoUrl,jobType,jobPosition,jobDescription,remoteOrOffice,location,selectedSkills,information,monthlySalary,created_at} = jobInfo
   //console.log("selectedSkills:",typeof selectedSkills)
   useEffect(() => {

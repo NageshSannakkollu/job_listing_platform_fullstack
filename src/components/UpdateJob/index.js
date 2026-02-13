@@ -8,11 +8,6 @@ import "./index.css"
 const defaultSkills= ['Javascript','ReactJs','HTML','CSS','Java','NodeJs','Python','SQL','MongoDB','WordPress']
 const UpdateJob = () => {
     const [jobValues,setJobValues] =useState([]) 
-
-    // const [jobValues,setJobValues] = useState({
-    //     companyName:'',companySize:'11-50',addLogoUrl:"",jobPosition:"",monthlySalary:'',jobType:"Full Time",remoteOrOffice:'Remote',location:'',jobDescription:'',
-    //     aboutCompany:'',information:''
-    // })
     const [selectedSkills,setSelectSkills] = useState([]);
     const navigate = useNavigate()
 

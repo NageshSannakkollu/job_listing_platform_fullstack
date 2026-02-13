@@ -41,16 +41,12 @@ const skillSet = [
 const LandingPage =  () => {
     const [defaultSkills,setDefaultSkill] = useState([{id:1,skillName:'HTML'},{id:2,skillName:'CSS'},{id:3,skillName:'Javascript'}])
     const [selectedSkills,setSelectedSkills] = useState([skillSet[0].skillName])
-    // const [userProfile,setUserProfile] = useState("")
     const [sampleJobsListInfo,setSampleJobsListInfo] = useState([])
     const [deleteJobFormList,setDeleteJob] = useState(true)
     const [searchInput,setSearchInput] = useState('')
-    // console.log("defaultSkills:",defaultSkills)
-    // const navigate = useNavigate()
+
     const jwtToken = Cookies.get('jwtToken')
-    // if (jwtToken === undefined){
-    //     navigate("/login")
-    // }
+
     const changeInInput = event => {
         setSearchInput(event.target.value)
     }
@@ -87,17 +83,10 @@ const LandingPage =  () => {
     setDefaultSkill(filterDeleteSkills)
   }
 
-    // console.log("sampleJobsListInfo:",typeof sampleJobsListInfo)
-
     const onChangeDefaultSkill = event => {
         const selectedValue =event.target.value
         setSearchInput(selectedValue)
     }
-
-    // const selectedSkillList = [new Set(selectedSkills)]
-    // console.log("selectedSkillList:",selectedSkills)
-    // console.log("userProfile:",searchInput)
-
     const filterJobs = sampleJobsListInfo.filter(skill => 
         skill.companyName.toLowerCase().includes(searchInput.toLowerCase()) || 
         skill.jobPosition.toLowerCase().includes(searchInput.toLowerCase()) ||

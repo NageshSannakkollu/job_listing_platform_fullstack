@@ -10,13 +10,6 @@ const LoginPage = () => {
     const [loginValues,setLoginValues] = useState({email:'',password:''})
     const navigate = useNavigate()
 
-    // const jwtToken = Cookies.get("jwtToken");
-    // console.log("jwtToken:",jwtToken)
-    // if(jwtToken !== undefined){
-    //     navigate("/")
-    // }
-
-
     const loginHandler = async(event) => {
         event.preventDefault()
         // console.log("LoginDetails:",loginValues)

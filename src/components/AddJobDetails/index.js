@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import { toast } from "react-toastify"
 import { Link,useNavigate } from "react-router-dom"
-import Cookies from "js-cookie"
 import axios from "axios";
 
 import "./index.css"
