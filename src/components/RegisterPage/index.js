@@ -11,7 +11,7 @@ const RegisterPage = () => {
     const registerHandler = async(event) => {
         event.preventDefault()
         // console.log("registerValues:",registerValues)
-        const response = await axios.post("http://localhost:3025/api/auth/signup",registerValues)
+        const response = await axios.post("https://jobs-find-platform-backend.onrender.com/api/auth/signup",registerValues)
         console.log("RegResponse:",response);
         if(response.data.success){
             toast.success(response.data.message)
@@ -35,7 +35,7 @@ const RegisterPage = () => {
                 <input type='text' placeholder='Name' onChange={e => setRegValues({...registerValues,username:e.target.value})} className='email_input' required/>
                 <input type='email' placeholder='Email' onChange={e => setRegValues({...registerValues,email:e.target.value})} className='email_input' required/>
                 <input type='number' placeholder='Mobile' onChange={e => setRegValues({...registerValues,mobile:e.target.value})} className='email_input' required/>
-                <input type='text' placeholder='Password' onChange={e => setRegValues({...registerValues,password:e.target.value})} className='email_input' required/>
+                <input type='password' placeholder='Password' onChange={e => setRegValues({...registerValues,password:e.target.value})} className='email_input' required/>
                 <div className='terms_policy_checkbox_container'>
                     <input type='checkbox' id="checkbox" />
                     <label htmlFor='checkbox'>By Creating an account, I agree to our terms of use and privacy policy</label>

@@ -1,16 +1,14 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import { AiOutlineTeam } from "react-icons/ai";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 
 import "./index.css"
-
-
 const JobsInfoCard = (props) => {
     const {jobInfoDetails,userProfile,deleteJob} = props
+    // console.log("jobInfoDetails:",jobInfoDetails)
     const {id,companyName,addLogoUrl,jobType,remoteOrOffice,location,selectedSkills,companySize,monthlySalary} = jobInfoDetails
     const selectedSkillsSet = JSON.parse(selectedSkills)
-    // console.log("userProdield:",userProfile)
+
     const clickOnDelete = () =>{
         deleteJob(id)
     }
@@ -39,12 +37,18 @@ const JobsInfoCard = (props) => {
             </div>
         </div>
         <div>
+
             <ul className='skill_set_info_container'>
+            {selectedSkillsSet.length > 0 ?
+            <>
                 {selectedSkillsSet.map((eachOne,index) => {
                     return(
                         <li className='each_skill_title' key={index}>{eachOne}</li>
                     )
                 })}
+            </>
+                :
+                <p style={{textAlign:"center"}}>No Skills selected </p>}
             </ul>
             <div className='view_details_button_container'> 
             <div>

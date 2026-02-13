@@ -12,7 +12,7 @@ const UsersList = () => {
     // console.log("userProfileData:",userProfile)
     useEffect(() => {   
         const getUsers = async() => {
-            const response = await axios.get("http://localhost:3025/api/all-users")
+            const response = await axios.get("https://jobs-find-platform-backend.onrender.com/api/all-users")
             const usersResponse = await response;
             setUsersList(usersResponse.data.users)
         }

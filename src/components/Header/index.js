@@ -1,9 +1,9 @@
-import React from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 import "./index.css"
 
 const Header = (props) => {
+
   const {userProfile} = props 
   // console.log("userProfile:",userProfile)
   const jwtToken = Cookies.get("jwtToken")
@@ -13,9 +13,12 @@ const Header = (props) => {
     // console.log(jwtToken)
     navigate("/login")
   }
+
   return (
     <nav className='nav_header_container'>
-        <Link to="/" className='nav_link_item'><h3>Job Station</h3></Link>
+        <Link to="/" className='nav_link_item'>
+          <h3>Job Station</h3>
+        </Link>
         {jwtToken === undefined ? 
           <ul className='nav_links_container'>
             <Link to="/login">
@@ -41,7 +44,7 @@ const Header = (props) => {
                     </li>
                 </Link>
                     <div className='user_profile_username_container'>
-                      <img src='https://res.cloudinary.com/dksgsqhdk/image/upload/v1741658188/1645290269869_wp7bfi.jpg' alt='profile' className='profile_image'/>
+                      <img src='https://res.cloudinary.com/dksgsqhdk/image/upload/v1770979375/cygnustmc_logo_vzr3yz.jpg' alt='profile' className='profile_image'/>
                       <p className='username'>{userProfile.username}[Admin]</p>
                     </div>
                 </ul>
@@ -49,7 +52,7 @@ const Header = (props) => {
               :
                  <ul className='nav_links_container'>
                      <div className='user_profile_username_container'>
-                       <img src='https://res.cloudinary.com/dksgsqhdk/image/upload/v1741658188/1645290269869_wp7bfi.jpg' alt='profile' className='profile_image'/>
+                       <img src='https://res.cloudinary.com/dksgsqhdk/image/upload/v1770979375/cygnustmc_logo_vzr3yz.jpg' alt='profile' className='profile_image'/>
                        <p className='username'>{userProfile.username}[User]</p>
                      </div>
                  </ul>

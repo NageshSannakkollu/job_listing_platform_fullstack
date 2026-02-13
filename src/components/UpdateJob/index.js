@@ -17,11 +17,11 @@ const UpdateJob = () => {
     const navigate = useNavigate()
 
     const {id} = useParams()
-    console.log("updatedId:",id)
+    //console.log("updatedId:",id)
     useEffect(() => {
         const getSpecificJOb = async() => {
             try {
-                const response = await axios.get(`http://localhost:3025/api/jobs/${id}`)
+                const response = await axios.get(`https://jobs-find-platform-backend.onrender.com/api/jobs/${id}`)
                 const data = await response.data;
                 console.log("Data:",data)
                 setJobValues([data])
@@ -30,13 +30,13 @@ const UpdateJob = () => {
             }
         }
         getSpecificJOb()
-    },[])
+    },[id])
 
         const updateHandler = async(event) => {
         event.preventDefault()
-        const jobDetailsInfo = jobValues[0]
+        const jobDetailsInfo = {...jobValues[0],selectedSkills}
         console.log("jobDetailsInfo:",jobDetailsInfo)
-        const response = await axios.put(`http://localhost:3025/api/jobs/${id}`,jobValues[0])
+        const response = await axios.patch(`https://jobs-find-platform-backend.onrender.com/api/jobs/${id}`,jobDetailsInfo)
             const data = await response.data;
             if(data.success){
                 toast.success(data.message)
@@ -53,14 +53,15 @@ const UpdateJob = () => {
             setSelectSkills([...selectedSkills,selectedValue])
         }
     }
-    
+
+    // console.log("selectedSkills:",selectedSkills)
 
   return (
     <div className='login_page_main_container'>
         <form className='job_description_inside_container' onSubmit={updateHandler}>
         {jobValues.map(eachItem => {
             return (
-                <div className='login_left_container'>
+            <div className='login_left_container'>
             <h2>Add job description</h2>
             <div className="job_description_title_container">
                 <h4 className="side_title">Company Name</h4>
@@ -125,10 +126,9 @@ const UpdateJob = () => {
                 </Link>
                     <button type='submit' className='add_button'>Update</button>
                 </div>
-        </div>
+            </div>
             )
         })}
-        
         <div className='job_description_right_container'>
             <h3 className='your_personal_job_title'>Your Personal Job Finder</h3>
         </div>

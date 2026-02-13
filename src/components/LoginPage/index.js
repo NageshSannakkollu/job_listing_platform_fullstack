@@ -10,11 +10,17 @@ const LoginPage = () => {
     const [loginValues,setLoginValues] = useState({email:'',password:''})
     const navigate = useNavigate()
 
+    // const jwtToken = Cookies.get("jwtToken");
+    // console.log("jwtToken:",jwtToken)
+    // if(jwtToken !== undefined){
+    //     navigate("/")
+    // }
+
 
     const loginHandler = async(event) => {
         event.preventDefault()
         // console.log("LoginDetails:",loginValues)
-        const response = await axios.post("http://localhost:3025/api/auth/login",loginValues)
+        const response = await axios.post("https://jobs-find-platform-backend.onrender.com/api/auth/login",loginValues)
         console.log("Response:",response.data)
         if(response.data.success){  
             Cookies.set('jwtToken', response.data.jwtToken, {expires: 30})
@@ -35,7 +41,7 @@ const LoginPage = () => {
             <p className='job_finder_para'>Your Personal job finder is here</p>
         </div>
             <input type='email' placeholder='Email' onChange={e => setLoginValues({...loginValues,email:e.target.value})} className='email_input' required/>
-            <input type='text' placeholder='Password' onChange={e => setLoginValues({...loginValues,password:e.target.value})} className='email_input' required/>
+            <input type='password' placeholder='Password' onChange={e => setLoginValues({...loginValues,password:e.target.value})} className='email_input' required/>
             <button type='submit' className='submit_button'>Sign In</button>
             <p className='dont_have_acc'>Don't have an account? <Link to="/register" className='sign_up_link'>Sign Up</Link> </p>
         </div>

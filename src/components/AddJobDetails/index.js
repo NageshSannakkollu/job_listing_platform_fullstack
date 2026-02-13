@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from "react-toastify"
 import { Link,useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
@@ -27,17 +27,18 @@ const AddJobDetails = () => {
         event.preventDefault()
         const jobFullDetails = {...jobDetails,selectedSkills}
         console.log("jobDetails:",jobFullDetails)
-        const response = await axios.post("http://localhost:3025/api/jobs",jobFullDetails)
-        console.log("Response:",response.data)
+        const response = await axios.post("https://jobs-find-platform-backend.onrender.com/api/jobs",jobFullDetails)
+        //console.log("Response:",response.data)
         if(response.data.success){  
             toast.success(response.data.message)
             navigate("/")
         }else{
             toast.error(response.data.message)
         }
-        
     }
     
+    //console.log("listSelectedSkills:",typeof selectedSkills)
+
   return (
     <div className='login_page_main_container'>
         <form className='job_description_inside_container' onSubmit={addJobHandler}>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LandingPage from "./components/LandingPage"
 import LoginPage from './components/LoginPage'
@@ -9,11 +8,9 @@ import "react-toastify/dist/ReactToastify.css"
 import AddJobDetails from './components/AddJobDetails'
 import UpdateJob from './components/UpdateJob'
 import UsersList from './components/UsersList'
-
+import NotFound from './components/NotFound'
 
 import "./App.css"
-
-
 const App = () => (
     <BrowserRouter>
     <ToastContainer position='top-center' autoClose={600} hideProgressBar={true} transition={Slide}/>
@@ -25,6 +22,7 @@ const App = () => (
         <Route exact path="/addJob" element={<AddJobDetails/>}/>
         <Route exact path='/update/:id' element={<UpdateJob/>} />
         <Route exact path="/users_list" element={<UsersList/>} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
     </BrowserRouter>
   )

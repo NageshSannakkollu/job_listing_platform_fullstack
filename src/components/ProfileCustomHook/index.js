@@ -7,7 +7,7 @@ const ProfileCustomHook = () => {
     useEffect(() => {
             const getProfileDetails = async() => {
             try {
-                const response = await fetch("http://localhost:3025/api/auth/profile",{
+                const response = await fetch("https://jobs-find-platform-backend.onrender.com/api/auth/profile",{
                     method:'GET',
                     headers:{
                         "Authorization":`Bearer ${jwtToken}`,

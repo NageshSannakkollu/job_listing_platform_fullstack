@@ -1,0 +1,27 @@
+.not_found_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin-top: 60px;
+}
+
+.not_found_image {
+    height: 300px;
+    width: 300px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 17px 0px #a6a6a6d5;
+}
+.dashboard_button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    background-color: red;
+    color: #fff;
+    border: 0px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+
+}

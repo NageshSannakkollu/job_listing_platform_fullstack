@@ -38,7 +38,6 @@ const skillSet = [
     },
 ]
 
-
 const LandingPage =  () => {
     const [defaultSkills,setDefaultSkill] = useState([{id:1,skillName:'HTML'},{id:2,skillName:'CSS'},{id:3,skillName:'Javascript'}])
     const [selectedSkills,setSelectedSkills] = useState([skillSet[0].skillName])
@@ -55,14 +54,15 @@ const LandingPage =  () => {
     const changeInInput = event => {
         setSearchInput(event.target.value)
     }
+    
     const userProfile = ProfileCustomHook()
 
     useEffect(()=>{
         const getJobsList = async() => {
             if(deleteJobFormList){
                 setDeleteJob(false)
-            const response = await axios.get('http://localhost:3025/api/jobs')
-            console.log("Response:",response)
+            const response = await axios.get('https://jobs-find-platform-backend.onrender.com/api/jobs')
+            console.log("Response:",response.data)
             setSampleJobsListInfo(response.data)
         }
     }
@@ -71,7 +71,7 @@ const LandingPage =  () => {
 
     const deleteJob = async(id) => {
     // console.log("delete Id:",id)
-    const response = await axios.delete(`http://localhost:3025/api/jobs/${id}`)
+    const response = await axios.delete(`https://jobs-find-platform-backend.onrender.com/api/jobs/${id}`)
     
       if(response.data.success){
         toast.success("Delete Job Successfully")
@@ -114,6 +114,8 @@ const LandingPage =  () => {
     const clickOnSelectedSkill = (skill) => {
         setSearchInput(skill)
     }
+
+    //console.log("sampleJobsListInfo:",sampleJobsListInfo)
 
   return (
     <div>
